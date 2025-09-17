@@ -16,19 +16,27 @@
 // 				    matriz[i-1][j-1] + custoExtra];
 // 	devolva matriz[m][n];
 public class EditDistanceDinamica {
-    
+    public static int contador = 0;
+
     public static int distEdProgDina(String A, String B) {
         int m  = A.length();
         int n = B.length();
         int[][] matriz;
+        contador += 7;
         matriz = new int[m+1][n+1];
+        contador += 4;
         matriz[0][0] = 0;
+        contador += 3;
 
+        contador += 1;
         for(int i = 1; i <= m; i++) {
+            contador += 1;
             matriz[i][0] = matriz[i-1][0] + 1;
         }
+        contador += 1;
         for(int i = 1; i <= n; i++) {
             matriz[0][i] = matriz[0][i-1] + 1;
+
             
         }
         
@@ -48,6 +56,16 @@ public class EditDistanceDinamica {
     }
 
     public static void main(String args[]) {
-        System.out.println(distEdProgDina("Casablanca", "Portentoso"));
+               contador = 0;
+        String S = "bola";
+        String T = "bala";
+        System.out.println(S + " - "+ T + " : " + distEdProgDina(S, T) + " contador: " + contador);  
+
+            contador = 0;
+
+        S = "Casablanca";
+        T = "Portentoso";
+        System.out.println(S + " - "+ T + " : " + distEdProgDina(S, T) + " contador: " + contador);  
+
     }
 }
